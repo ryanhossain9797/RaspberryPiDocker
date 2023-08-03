@@ -1,0 +1,59 @@
+version: '3.3'
+services:
+    portainer-ce:
+        ports:
+            - '9000:9000'
+            - '9443:9443'
+            - '8000:8000'
+        container_name: portainer
+        restart: unless-stopped
+        volumes:
+            - /var/run/docker.sock:/var/run/docker.sock
+            - portainer_data:/data
+        image: 'portainer/portainer-ce:linux-arm'
+
+    qbittorrent:
+        image: lscr.io/linuxserver/qbittorrent:latest
+        container_name: qbittorrent
+        environment:
+            - PUID=1000
+            - PGID=1000
+            - TZ=Etc/UTC
+            - WEBUI_PORT=4591
+        ports:
+            - 4591:4591
+            - 6881:6881
+            - 6881:6881/udp
+        volumes:
+            - /mnt:/mnt/:z
+        restart: unless-stopped
+
+    samba:
+        image: dperson/samba
+        container_name: samba
+        environment:
+            TZ: 'EST5EDT'
+        networks:
+            - default
+        ports:
+            - "137:137/udp"
+            - "138:138/udp"
+            - "139:139/tcp"
+            - "445:445/tcp"
+        read_only: false
+        tmpfs:
+            - /tmp
+        restart: unless-stopped
+        stdin_open: true
+        tty: true
+        volumes:
+            - /mnt:/mnt:z
+        command: '-s "Mount;/mnt;yes;no;yes;;zireael9797;zireael9797;globalshare" -u "zireael9797;ageraone1" -p'
+        
+networks:
+  default:
+
+volumes:
+  portainer_data:
+    name: portainer_data
+    external: false
