@@ -13,7 +13,9 @@ services:
         image: 'portainer/portainer-ce:linux-arm'
 
     qbittorrent:
-        image: lscr.io/linuxserver/qbittorrent:latest
+        build:
+            context: .
+            dockerfile: Qbittorrent.Dockerfile
         container_name: qbittorrent
         environment:
             - PUID=1000
@@ -25,7 +27,8 @@ services:
             - 6881:6881
             - 6881:6881/udp
         volumes:
-            - /mnt:/mnt/:z
+            - /A:/A/:z
+            - /B:/B/:z
         restart: unless-stopped
 
     samba:
@@ -47,8 +50,9 @@ services:
         stdin_open: true
         tty: true
         volumes:
-            - /mnt:/mnt:z
-        command: '-s "Mount;/mnt;yes;no;yes;;zireael9797;zireael9797;globalshare" -u "zireael9797;ageraone1" -p'
+            - /A:/A:z
+            - /B:/B:z
+        command: '-s "A;/A;yes;no;yes;;zireael9797;zireael9797;globalshare" -s "B;/B;yes;no;yes;;zireael9797;zireael9797;globalshare" -u "zireael9797;ageraone1" -p'
         
 networks:
   default:
