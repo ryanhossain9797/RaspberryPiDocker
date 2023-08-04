@@ -27,6 +27,7 @@ services:
         volumes:
             - /A:/A/:z
             - /B:/B/:z
+            - /home/zireael9797/qBittorrentConfig:/config:z
         command: ["/bin/bash", "-c", "sleep 5 && chmod -R 777 /A && chmod -R 777 /B && qbittorrent-nox"] #Figure this out
         restart: unless-stopped
 
