@@ -13,7 +13,9 @@ services:
         image: 'portainer/portainer-ce:linux-arm'
 
     qbittorrent:
-        image: lscr.io/linuxserver/qbittorrent
+        build:
+            context: .
+            dockerfile: Qbittorrent.Dockerfile
         container_name: qbittorrent
         environment:
             - PUID=1000
