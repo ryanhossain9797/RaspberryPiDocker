@@ -11,3 +11,4 @@
   ```
 - dockerd-rootless-setuptool.sh
 - sudo usermod -aG docker yourUserName
+- docker run hello-world
