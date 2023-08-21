@@ -1,5 +1,7 @@
 # RaspberryPiDocker
-- git submodule update --recursive --remote
+- git clone git@github.com:ryanhossain9797/RaspberryPiDocker.git --recurse-submodules
+- sudo lsblk
+- sudo blkid
 - curl -sSL https://get.docker.com | sh
 - ```
   ########## BEGIN ##########
