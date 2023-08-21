@@ -27,8 +27,8 @@ services:
             - 6881:6881
             - 6881:6881/udp
         volumes:
-            - a:/A/:z
-            - b:/B/:z
+            - primary:/A
+            - secondary:/B
             - /home/zireael9797/qBittorrentConfig:/config:z
         command: ["/bin/bash", "-c", "sleep 5 && chmod -R 777 /A && chmod -R 777 /B && qbittorrent-nox"] #Figure this out
         restart: unless-stopped
@@ -52,24 +52,24 @@ services:
         stdin_open: true
         tty: true
         volumes:
-            - a:/A:z
-            - b:/B:z
+            - primary:/A
+            - secondary:/B
         command: '-s "A;/A;yes;no;yes;;zireael9797;zireael9797;globalshare" -s "B;/B;yes;no;yes;;zireael9797;zireael9797;globalshare" -u "zireael9797;ageraone1" -p'
-        
+
 networks:
-  default:
+    default:
 
 volumes:
-  portainer_data:
-    name: portainer_data
-    external: false
-  a:
-    driver: local
-    driver_opts:
-      device: "/dev/disk/by-uuid/05ac0341-38f1-489b-b054-4a4f811d1537"
-      type: ext4
-  b:
-    driver: local
-    driver_opts:
-      device: "/dev/disk/by-uuid/B8B1-9B4F"
-      type: exfat
+    portainer_data:
+        name: portainer_data
+        external: false
+    primary:
+        driver: local
+        driver_opts:
+            device: /dev/disk/by-uuid/05ac0341-38f1-489b-b054-4a4f811d1537
+            type: ext4
+    secondary:
+        driver: local
+        driver_opts:
+            device: /dev/disk/by-uuid/B8B1-9B4F
+            type: exfat
