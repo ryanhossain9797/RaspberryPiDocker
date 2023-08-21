@@ -1,5 +1,5 @@
 # RaspberryPiDocker
-
+- git submodule update --recursive --remote
 - curl -sSL https://get.docker.com | sh
 - ```
   ########## BEGIN ##########
@@ -12,3 +12,4 @@
 - dockerd-rootless-setuptool.sh
 - sudo usermod -aG docker yourUserName
 - docker run hello-world
+- sudo docker compose up -d
