@@ -71,5 +71,5 @@ volumes:
     secondary:
         driver: local
         driver_opts:
-            device: /dev/disk/by-uuid/B8B1-9B4F
-            type: exfat
+            device: /dev/disk/by-uuid/57568cb7-8818-4c66-b7c2-d62b5bccba0e
+            type: ext4
