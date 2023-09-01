@@ -30,12 +30,7 @@ services:
             - primary:/A
             - secondary:/B
             - /home/zireael9797/qBittorrentConfig:/config:z
-        command:
-            [
-                "/bin/bash",
-                "-c",
-                "while [ ! -e /A ]; do sleep 5; done && while [ ! -e /B ]; do sleep 5; done && chmod -R 777 /A && chmod -R 777 /B && qbittorrent-nox"
-            ] #Figure this out
+        command: ["/bin/bash", "-c", "sleep 5 && chmod -R 777 /A && chmod -R 777 /B && qbittorrent-nox"] #Figure this out
         restart: unless-stopped
 
     samba:
