@@ -11,7 +11,7 @@
   EOF
   ########## END ##########
   ```
-- `dockerd-rootless-setuptool.sh`
+- `dockerd-rootless-setuptool.sh install`
 - `sudo usermod -aG docker yourUserName`
 - `docker run hello-world`
 - `sudo docker stop $(sudo docker ps -a -q)`
