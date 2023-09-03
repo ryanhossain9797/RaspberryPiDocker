@@ -19,3 +19,4 @@
 - `sudo docker rmi $(sudo docker images -a -q)`
 - `sudo docker volume rm $(sudo docker volume ls -q)`
 - `sudo docker compose up -d`
+- In the qbit container `sudo chmod -R 777 /A` & `sudo chmod -R 777 /B`
