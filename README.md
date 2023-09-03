@@ -1,8 +1,8 @@
 # RaspberryPiDocker
-- git clone git@github.com:ryanhossain9797/RaspberryPiDocker.git --recurse-submodules
-- sudo lsblk
-- sudo blkid
-- curl -sSL https://get.docker.com | sh
+- `git clone https://github.com/ryanhossain9797/RaspberryPiDocker.git --recurse-submodules`
+- `sudo lsblk`
+- `sudo blkid`
+- `curl -sSL https://get.docker.com | sh`
 - ```
   ########## BEGIN ##########
   sudo sh -eux <<EOF
