@@ -65,7 +65,7 @@ services:
         volumes:
         - primary:/srv/a
         - secondary:/srv/b
-        - ~/filebrowser/filebrowser.db:/database.db
+        # - ~/filebrowser/filebrowser.db:/database.db
         restart: always
 
 networks:
