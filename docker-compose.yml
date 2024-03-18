@@ -61,11 +61,11 @@ services:
         container_name: filebrowser
         user: "{UID}:{GID}"
         ports:
-        - "9090:8080"
+        - 9090:8080
         volumes:
         - primary:/srv/a
         - secondary:/srv/b
-        - ~/filebrowser/filebrowser.db:/database/filebrowser.db
+        - ~/filebrowser/filebrowser.db:/database.db
         restart: always
 
 networks:
