@@ -20,6 +20,6 @@
 - `sudo docker volume rm $(sudo docker volume ls -q)`
 
 # To Start
-- replace UID and GID for filebrowser with actual values
+- replace UID and GID for filebrowser with actual values, requires root for now since docker is started with sudo
 - `sudo docker compose up -d`
 - In the qbit container `chmod -R 777 /A` & `chmod -R 777 /B`
