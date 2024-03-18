@@ -61,7 +61,7 @@ services:
         container_name: filebrowser
         user: "{UID}:{GID}"
         ports:
-        - 9090:8080
+        - 9090:80
         volumes:
         - primary:/srv/a
         - secondary:/srv/b
