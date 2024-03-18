@@ -56,6 +56,21 @@ services:
             - secondary:/B
         command: '-s "A;/A;yes;no;yes;;zireael9797;zireael9797;globalshare" -s "B;/B;yes;no;yes;;zireael9797;zireael9797;globalshare" -u "zireael9797;ageraone1" -p'
 
+    filebrowser:
+        image: hurlenko/filebrowser
+        container_name: filebrowser
+        user: "${UID}:${GID}"
+        ports:
+        - "80:9090"
+        volumes:
+        - primary:/srv/a
+        - secondary:/srv/b
+        - ~/filebrowser/database.db:/database.db
+        # - /path/to/.filebrowser.json:/.filebrowser.json
+        environment:
+        - FB_BASEURL=/filebrowser
+        restart: always
+
 networks:
     default:
 
