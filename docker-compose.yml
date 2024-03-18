@@ -68,6 +68,8 @@ services:
         - ~/filebrowser/database.db:/database.db
         # - /path/to/.filebrowser.json:/.filebrowser.json
         environment:
+        - PUID=${UID}
+        - PGID=${GID}
         - FB_BASEURL=/filebrowser
         restart: always
 
