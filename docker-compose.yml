@@ -61,15 +61,13 @@ services:
         container_name: filebrowser
         user: "{UID}:{GID}"
         ports:
-        - "8080:9090"
+        - "9090:8080"
         volumes:
         - primary:/srv/a
         - secondary:/srv/b
         - ~/filebrowser/database.db:/database.db
         # - /path/to/.filebrowser.json:/.filebrowser.json
         environment:
-        - PUID=${UID}
-        - PGID=${GID}
         - FB_BASEURL=/filebrowser
         restart: always
 
