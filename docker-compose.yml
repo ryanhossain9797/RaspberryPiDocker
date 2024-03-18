@@ -59,9 +59,9 @@ services:
     filebrowser:
         image: hurlenko/filebrowser
         container_name: filebrowser
-        user: "${UID}:${GID}"
+        user: "{UID}:{GID}"
         ports:
-        - "80:9090"
+        - "8080:9090"
         volumes:
         - primary:/srv/a
         - secondary:/srv/b
