@@ -22,4 +22,4 @@
 # To Start
 - replace UID and GID for filebrowser with actual values
 - `sudo docker compose up -d`
-- In the qbit container `sudo chmod -R 777 /A` & `sudo chmod -R 777 /B`
+- In the qbit container `chmod -R 777 /A` & `chmod -R 777 /B`
