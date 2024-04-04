@@ -22,7 +22,7 @@
   ```
   vim /boot/cmdline.txt
   //Append 
-  cgroup_enable=memory cgroup_memory=1
+  cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1
   //Check
   grep cgroup /proc/filesystems
   > nodev   cgroup
