@@ -18,7 +18,16 @@
 - `sudo docker rm $(sudo docker ps -a -q)`
 - `sudo docker rmi $(sudo docker images -a -q)`
 - `sudo docker volume rm $(sudo docker volume ls -q)`
-
+- 
+  ```
+  vim /boot/cmdline.txt
+  //Append 
+  cgroup_enable=memory cgroup_memory=1
+  //Check
+  grep cgroup /proc/filesystems
+  > nodev   cgroup
+    nodev   cgroup2
+  ```
 # To Start
 - replace UID and GID for filebrowser with actual values, requires root for now since docker is started with sudo
 - `sudo docker compose up -d`
