@@ -1,3 +1,23 @@
+# Non Docker Setup
+https://www.raspberrypi.com/tutorials/nas-box-raspberry-pi-tutorial/
+
+- `sudo vim /etc/fstab`
+- add to end `/dev/sda1 /mnt/sda1/ ext4 defaults,noatime 0 1`
+- `sudo chmod -R 777 /mnt/sda1
+- `sudo apt install samba samba-common-bin`
+- `sudo vim /etc/samba/smb.conf`
+- ```
+  [shared]
+  path=/mnt/sda1
+  writeable=Yes
+  create mask=0777
+  directory mask=0777
+  public=no
+  ```
+- `sudo systemctl restart smbd`
+- `sudo adduser nasuser`
+- `sudo smbpasswd -a username`
+
 # RaspberryPiDocker
 - `git clone https://github.com/ryanhossain9797/RaspberryPiDocker.git --recurse-submodules`
 - `sudo lsblk`
